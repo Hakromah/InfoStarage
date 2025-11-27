@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "password_entries",
+  "info": {
+    "singularName": "password-entry",
+    "pluralName": "password-entries",
+    "displayName": "Password Entry"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "appName": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "users_entry": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "password_entries"
+    }
+  }
+}
