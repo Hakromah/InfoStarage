@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import AddUserForm from "@/components/AddUserForm";
 import { useAuth } from "@/components/AuthContext";
 import HeroSections from "@/components/HeroSections";
 import LoginModal from "@/components/LoginModal";
-import Search from "@/components/Search";
+import PasswordPage from "@/components/PasswordPage";
 import { getHomePage } from "@/data/loaders";
 import { FooterSection, HeroSection, HomePageData } from "@/types/strapi";
 import { useEffect, useState } from "react";
@@ -112,13 +111,7 @@ export default function Page() {
       {/* LOGGED-IN CONTENT */}
       {isLoggedIn && (
         <section className="grid gap-4 p-8">
-          <AddUserForm
-            onSuccess={handleLoginSuccess} />
-
-          <Search />
-          {/* <div className="grid gap-4">
-            <DisplayedData />
-          </div> */}
+          <PasswordPage />
         </section>
       )}
     </main>

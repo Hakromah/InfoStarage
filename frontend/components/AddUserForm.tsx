@@ -29,6 +29,7 @@ export default function AddUserForm({ onSuccess, onClose }: Props) {
       e.preventDefault();
       setError(null);
       setLoading(true);
+      setIsOpen(false);
 
       const formData = new FormData(e.currentTarget);
       const payload = {
@@ -106,11 +107,9 @@ export default function AddUserForm({ onSuccess, onClose }: Props) {
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                      </button>
                   </div>
-
                   {/* Form Body */}
                   <div className="p-6">
                      <form onSubmit={handleSubmit} className="space-y-4">
-
                         <div>
                            <label className="mb-1 block text-sm font-medium text-gray-700">App Name</label>
                            <input
@@ -121,7 +120,6 @@ export default function AddUserForm({ onSuccess, onClose }: Props) {
                               autoFocus // Automatically focus first input when opened
                            />
                         </div>
-
                         <div>
                            <label className="mb-1 block text-sm font-medium text-gray-700">Email</label>
                            <input
@@ -132,7 +130,6 @@ export default function AddUserForm({ onSuccess, onClose }: Props) {
                               required
                            />
                         </div>
-
                         <div>
                            <label className="mb-1 block text-sm font-medium text-gray-700">App Password</label>
                            <textarea
@@ -143,9 +140,7 @@ export default function AddUserForm({ onSuccess, onClose }: Props) {
                               required
                            />
                         </div>
-
                         {error && <p className="text-sm text-red-500">{error}</p>}
-
                         <div className="flex justify-end gap-3 pt-2">
                            <Button
                               type="button"
@@ -165,121 +160,7 @@ export default function AddUserForm({ onSuccess, onClose }: Props) {
                   </div>
                </div>
             )}
-
          </div>
       </section>
    );
-
-   // return (
-   //    // Main Section Container with top/bottom spacing
-   //    <section className="w-full py-12">
-
-   //       {/* The Form Card: Centered (mx-auto), constrained width, on-page styling */}
-   //       <div className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl shadow-gray-200/50">
-
-   //          {/* Header */}
-   //          <div className="border-b border-gray-100 bg-gray-50/50 px-6 py-4">
-   //             <h3 className="font-semibold text-gray-900">Add New User</h3>
-   //          </div>
-
-   //          {/* Form Body */}
-   //          <div className="p-6">
-   //             <form onSubmit={handleSubmit} className="space-y-4">
-
-   //                {/* App Name */}
-   //                <div>
-   //                   <label className="mb-1 block text-sm font-medium text-gray-700">App Name</label>
-   //                   <input
-   //                      name="appName"
-   //                      placeholder="e.g. Dashboard App"
-   //                      className="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10"
-   //                      required
-   //                   />
-   //                </div>
-
-   //                {/* Email */}
-   //                <div>
-   //                   <label className="mb-1 block text-sm font-medium text-gray-700">Email</label>
-   //                   <input
-   //                      name="email"
-   //                      type="email"
-   //                      placeholder="user@example.com"
-   //                      className="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10"
-   //                      required
-   //                   />
-   //                </div>
-
-   //                {/* Notes */}
-   //                <div>
-   //                   <label className="mb-1 block text-sm font-medium text-gray-700">Notes</label>
-   //                   <textarea
-   //                      name="text"
-   //                      rows={3}
-   //                      placeholder="Additional details..."
-   //                      className="w-full resize-none rounded-lg border border-gray-200 px-4 py-2.5 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10"
-   //                      required
-   //                   />
-   //                </div>
-
-   //                {error && <p className="text-sm text-red-500">{error}</p>}
-
-   //                {/* Footer Actions */}
-   //                <div className="flex justify-end gap-3 pt-2">
-   //                   <Button
-   //                      type="button"
-   //                      onClick={onClose} // Optional: You might clear the form instead of "closing" it here
-   //                      className="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100"
-   //                   >
-   //                      Clear
-   //                   </Button>
-   //                   <Button
-   //                      type="submit"
-   //                      className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
-   //                   >
-   //                      {loading ? "Saving..." : "Create User"}
-   //                   </Button>
-   //                </div>
-
-   //             </form>
-   //          </div>
-   //       </div>
-
-   //       {/* Hint: Your Search and Data components will go immediately below this Section in the parent page */}
-
-   //    </section>
-   // );
-
-   // return (
-   //    <form onSubmit={handleSubmit} className="space-y-3">
-   //       <input
-   //          name="appName"
-   //          placeholder="App name"
-   //          className="w-full border px-3 py-2 rounded"
-   //          required
-   //       />
-   //       <input
-   //          name="email"
-   //          placeholder="Email"
-   //          className="w-full border px-3 py-2 rounded"
-   //          required
-   //       />
-   //       <textarea
-   //          name="text"
-   //          placeholder="Text (password or notes)"
-   //          className="w-full border px-3 py-2 rounded"
-   //          required
-   //       />
-
-   //       {error && <div className="text-sm text-red-500">{error}</div>}
-
-   //       <div className="flex justify-end gap-2">
-   //          <Button type="button" onClick={onClose}>
-   //             Cancel
-   //          </Button>
-   //          <Button type="submit">
-   //             {loading ? "Saving..." : "Submit"}
-   //          </Button>
-   //       </div>
-   //    </form>
-   // );
 }
