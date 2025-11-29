@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "harmonious-fireworks-bde4521ff5.media.strapiapp.com",
-        pathname: "/**",
       },
     ],
   },
